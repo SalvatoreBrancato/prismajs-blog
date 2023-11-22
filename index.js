@@ -41,4 +41,15 @@ function readSlug(cercaSlug){
         })
 }
 
-readSlug('la-nuova-ferrari-f1-2023')
+//readSlug('la-nuova-ferrari-f1-2023')
+
+//Una funzione che restituisce l’elenco di tutti i Post.
+function allPost(){
+    prisma.post 
+        .findMany()
+        .then((posts)=>{
+            console.log(posts)
+        })
+}
+
+allPost()
