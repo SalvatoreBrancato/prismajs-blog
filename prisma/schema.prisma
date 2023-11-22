@@ -15,8 +15,10 @@ model Post {
   title     String   @db.VarChar(50)
   slug      String   @unique
   image     String?
-  content   Boolean  @default(false)
-  published DateTime
+  content   String @db.Text  
+  published Boolean @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+
