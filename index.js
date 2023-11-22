@@ -83,4 +83,20 @@ function deletePost(idElemento){
         })
 }
 
-deletePost(5)
+//deletePost(5)
+
+//---BONUS---
+//Crea una funzione che restituisca solo i Post pubblicati.
+function postsPublished(){
+    prisma.post 
+        .findMany({
+            where: {
+                published : true
+            }
+        })
+        .then((result)=>{
+            console.log(result)
+        })
+}
+
+postsPublished()
