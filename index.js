@@ -99,4 +99,21 @@ function postsPublished(){
         })
 }
 
-postsPublished()
+//postsPublished()
+
+// Crea una funzione che restituisca solo i Post che contengono una determinata stringa nel contenuto
+function subStringPost(subString){
+    prisma.post
+        .findMany({
+            where:{
+                content:{
+                    contains: subString
+                }
+            }
+        })
+        .then((result)=>{
+            console.log(result)
+        })
+}
+
+subStringPost('Lamar')
