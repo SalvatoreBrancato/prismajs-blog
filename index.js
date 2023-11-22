@@ -52,4 +52,21 @@ function allPost(){
         })
 }
 
-allPost()
+//allPost()
+// Una funzione che consente di modificare un Post.
+function updatePost(idElemento, modifica){
+    prisma.post 
+        .update({
+            where: {
+                id: idElemento
+            },
+            data: {
+                published: modifica
+            }
+        })
+        .then((postModificato)=>{
+            console.log(postModificato)
+        })
+}
+
+updatePost(1, true)
