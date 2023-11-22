@@ -69,4 +69,18 @@ function updatePost(idElemento, modifica){
         })
 }
 
-updatePost(1, true)
+//updatePost(1, true)
+//Una funzione che elimina un Post.
+function deletePost(idElemento){
+    prisma.post 
+        .delete({
+            where: {
+                id: idElemento
+            }
+        })
+        .then((postDeleted)=>{
+            console.log(postDeleted)
+        })
+}
+
+deletePost(5)
