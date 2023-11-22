@@ -1,7 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-
+// Una funzione che consente di creare un Post.
 function create(){
     prisma.post
         .createMany({
@@ -26,4 +26,19 @@ function create(){
         })
 }
 
-create()
+//create()
+
+//Una funzione che permette di leggere un Post usando lo slug.
+function readSlug(cercaSlug){
+    prisma.post
+        .findUnique({
+            where: {
+                slug: cercaSlug
+            }
+        })
+        .then((post)=>{
+            console.log(`Post con slug: ${cercaSlug}`, post )
+        })
+}
+
+readSlug('la-nuova-ferrari-f1-2023')
